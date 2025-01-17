@@ -1,0 +1,21 @@
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-elem {
+    display: flex;
+    flex-direction: column;
+    align-items: center; margin: 5px;
+}
+
+.upload-component {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }

@@ -1,0 +1,43 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment directory
+venv/
+env/
+*.env
+.venv/
+
+# Flask instance folder (for temporary files)
+instance/
+
+# Configuration files
+*.log
+*.sqlite3
+*.db
+*.bak
+
+# Coverage reports
+.coverage
+*.cover
+*.hypothesis/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Flask-specific settings
+instance/
+config.py
+
+app/uploads
