@@ -1,5 +1,5 @@
 from openpyxl.styles import Border, Side, Alignment
-from utils.excel_config import DEFAULT_TITLE, DEFAULT_COLUMNS_TO_KEEP
+from .excel_config import DEFAULT_TITLE, DEFAULT_COLUMNS_TO_KEEP
 
 def unmerge_cells(ws):
     # unmerge cells

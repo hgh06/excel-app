@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 import os
 
-from utils.file_handler import modify_excel, save_file
+from .utils.file_handler import modify_excel, save_file
 
 app = Flask(__name__)
 CORS(app)
