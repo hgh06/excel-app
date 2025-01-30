@@ -28,9 +28,15 @@ def upload_file():
     # Modify the Excel file using openpyxl
     try:
         modified_file_path = modify_excel(file_path)
+
+        print(modified_file_path)
         
-        # Send the modified file back to the user as a download
-        return send_file(modified_file_path, as_attachment=True, download_name=f"modified_{file.filename}")
+        return send_file(
+            modified_file_path,
+            as_attachment=True,
+            download_name=f"modified_{file.filename}",
+            mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        )
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

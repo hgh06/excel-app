@@ -3,7 +3,8 @@ from werkzeug.utils import secure_filename
 from openpyxl import load_workbook
 from utils.helpers import unmerge_cells, delete_rows, delete_columns, delete_empty_rows, set_borders_and_alignment, adjust_row_heights
 
-UPLOAD_FOLDER = 'uploads'
+current_directory = os.path.dirname(os.path.realpath(__file__))
+UPLOAD_FOLDER = os.path.join(current_directory, 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 ALLOWED_EXTENSIONS = {'xlsx'}
