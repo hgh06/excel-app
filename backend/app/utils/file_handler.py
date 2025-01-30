@@ -1,8 +1,12 @@
 import os
 from werkzeug.utils import secure_filename
 from openpyxl import load_workbook
-from utils.excel_config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS
 from utils.helpers import unmerge_cells, delete_rows, delete_columns, delete_empty_rows, set_borders_and_alignment, adjust_row_heights
+
+UPLOAD_FOLDER = 'uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+ALLOWED_EXTENSIONS = {'xlsx'}
 
 def allowed_file(filename):
     """Check if the file has a valid extension."""
