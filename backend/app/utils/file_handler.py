@@ -35,9 +35,11 @@ def modify_excel(file_path):
     try:
         # Load the workbook
         wb = load_workbook(file_path)
+
+        sheet_names = wb.sheetnames
         
         # Select the active sheet (or specify sheet by name)
-        ws = wb['Original']
+        ws = wb[sheet_names[0]]
         unmerge_cells(ws)
         delete_rows(ws)
         delete_columns(ws)
