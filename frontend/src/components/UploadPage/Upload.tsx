@@ -30,7 +30,7 @@ const Upload = () => {
 
     try {
       // Send FormData via fetch (or axios) to the server
-      const response = await fetch("http://127.0.0.1:5000/upload", {
+      const response = await fetch(process.env.REACT_APP_API_URL as string, {
         method: "POST",
         body: formData,
       });
@@ -39,7 +39,28 @@ const Upload = () => {
         throw new Error("File upload failed");
       }
 
-      alert("File uploaded successfully");
+      const contentDisposition = response.headers.get('Content-Disposition');
+      console.log(contentDisposition)
+      if (contentDisposition) {
+        const matches = contentDisposition.match(/filename="(.+)"/);
+        if (matches && matches[1]) {
+          const filename = matches[1];
+          console.log('Returned file name:', filename);  // Log the filename
+        } else {
+          console.log('Filename not found in the response header');
+        }
+      }
+
+      const blob = await response.blob();
+
+      // Create a temporary link to trigger the download
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = downloadUrl;
+      a.download = 'modified_file.xlsx';  // Provide a default name if the filename is missing
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     } catch (error) {
       console.error("Error:", error);
       alert("There was an error uploading the file");
